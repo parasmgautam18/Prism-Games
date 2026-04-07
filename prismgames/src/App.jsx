@@ -3,6 +3,7 @@ import Dashboard from './components/Dashboard';
 import PrismGame from './Games/1st';
 import VoidMaze from './Games/2nd';
 import EchoTiles from './Games/3rd'; // NEW IMPORT
+import TypingGame from './Games/4th';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/prism" element={<PrismGame />} />
           <Route path="/void" element={<VoidMaze />} />
           <Route path="/echo" element={<EchoTiles />} /> {/* NEW ROUTE */}
+          <Route path="/typing" element={<TypingGame/>}/>
         </Routes>
       </div>
     </Router>

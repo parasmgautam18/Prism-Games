@@ -24,6 +24,14 @@ const GAMES = [
     path: '/echo',
     color: 'from-purple-600 to-purple-900',
     tag: 'Memory'
+  },
+   {
+    id: 'typing-words',
+    title: 'TypingStud',
+    description: 'A fast-paced, 30-second typing challenge.Players must perfectly match the displayed words to rack up points and earn bonus time on the clock.',
+    path: '/typing',
+    color: 'from-green-600 to-blue-900',
+    tag: 'Agitation'
   }
 ];
 
