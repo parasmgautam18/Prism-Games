@@ -32,6 +32,14 @@ const GAMES = [
     path: '/typing',
     color: 'from-green-600 to-blue-900',
     tag: 'Agitation'
+  },
+  {
+    id: 'wood-stack',
+    title: '🪵 Wood Stack',
+    description: 'Stack blocks perfectly to build a tower. Tap to jump and align for perfect scores!',
+    path: '/wood',
+    color: 'from-yellow-600 to-orange-900',
+    tag: 'Skill'
   }
 ];
 

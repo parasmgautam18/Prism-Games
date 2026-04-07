@@ -4,6 +4,7 @@ import PrismGame from './Games/1st';
 import VoidMaze from './Games/2nd';
 import EchoTiles from './Games/3rd'; // NEW IMPORT
 import TypingGame from './Games/4th';
+import WoodStack from './Games/5th';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/void" element={<VoidMaze />} />
           <Route path="/echo" element={<EchoTiles />} /> {/* NEW ROUTE */}
           <Route path="/typing" element={<TypingGame/>}/>
+          <Route path="/wood" element={<WoodStack />} />
         </Routes>
       </div>
     </Router>
