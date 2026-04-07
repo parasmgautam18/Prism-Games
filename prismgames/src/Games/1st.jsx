@@ -270,7 +270,7 @@ export default function PrismGame() {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         disabled={showJumpscare}
-        className={`${task?.type === 'colorMatch' ? getColorValue(buttonColor) : (taskComplete ? 'bg-green-600' : isPressed ? 'bg-red-800' : 'bg-red-700')} ${showJumpscare ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:shadow-[0_0_25px_rgba(220,38,38,0.5)]'} px-20 py-10 text-2xl text-white border-none rounded-xl font-bold whitespace-pre-wrap transition-all min-w-[400px] border-4 border-black/20`}
+        className={`${task?.type === 'colorMatch' ? getColorValue(buttonColor) : (taskComplete ? 'bg-green-600' : isPressed ? 'bg-red-800' : 'bg-red-700')} ${showJumpscare ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:shadow-[0_0_25px_rgba(220,38,38,0.5)]'} px-20 py-10 text-2xl text-white border-none rounded-xl font-bold whitespace-pre-wrap transition-all min-w-100 border-4 border-black/20`}
       >
         {getTaskText()}
       </button>

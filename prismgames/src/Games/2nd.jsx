@@ -185,7 +185,7 @@ export default function TesseractMaze() {
         </div>
       </div>
 
-      <div className="relative w-[800px] h-[400px] bg-zinc-950 border-4 border-zinc-900 overflow-hidden shadow-2xl">
+      <div className="relative w-200 h-100 bg-zinc-950 border-4 border-zinc-900 overflow-hidden shadow-2xl">
         {TESSERACT_MAPS[activeMap].walls.map((w, i) => (
           <div key={i} className="absolute bg-zinc-900 border border-zinc-800" style={{ left: w.x, top: w.y, width: w.w, height: w.h }} />
         ))}
@@ -205,26 +205,26 @@ export default function TesseractMaze() {
         <div className="absolute rounded-full z-50 bg-white shadow-[0_0_20px_white]" style={{ left: visualPos.x - 10, top: visualPos.y - 10, width: 20, height: 20 }} />
 
         {gameState === "start" && (
-          <div className="absolute inset-0 bg-black/95 flex flex-col items-center justify-center z-[100]">
+          <div className="absolute inset-0 bg-black/95 flex flex-col items-center justify-center z-100">
             <button onClick={() => setGameState("playing")} className="px-12 py-4 bg-blue-600 text-white font-black text-2xl uppercase border-b-4 border-blue-900 active:border-0 transition-all">IGNITE DRIVE</button>
           </div>
         )}
 
         {gameState === "lost" && (
-          <div className="absolute inset-0 bg-red-950/90 flex flex-col items-center justify-center z-[100] animate-pulse">
-            <h2 className="text-7xl font-black mb-8 italic text-red-500 uppercase tracking-tighter uppercase">TERMINATED</h2>
+          <div className="absolute inset-0 bg-red-950/90 flex flex-col items-center justify-center z-100 animate-pulse">
+            <h2 className="text-7xl font-black mb-8 italic text-red-500 tracking-tighter uppercase">TERMINATED</h2>
             <button onClick={() => { setGameState("playing"); posRef.current = TESSERACT_MAPS[activeMap].start; setVisualPos(TESSERACT_MAPS[activeMap].start); keysRef.current = {}; }} className="px-10 py-3 bg-white text-black font-bold uppercase tracking-widest">Retry Sector</button>
           </div>
         )}
 
         {gameState === "warp" && (
-          <div className="absolute inset-0 bg-blue-600 flex items-center justify-center z-[100]">
+          <div className="absolute inset-0 bg-blue-600 flex items-center justify-center z-100">
             <h2 className="text-4xl font-black text-white italic animate-ping uppercase tracking-[0.5em]">Jumping...</h2>
           </div>
         )}
 
         {gameState === "won" && (
-          <div className="absolute inset-0 bg-white flex flex-col items-center justify-center z-[100] text-black text-center p-10">
+          <div className="absolute inset-0 bg-white flex flex-col items-center justify-center z-100 text-black text-center p-10">
             <h2 className="text-8xl font-black italic mb-4 uppercase">Liberated</h2>
             <button onClick={() => window.location.href = "/"} className="px-10 py-4 bg-black text-white font-bold uppercase tracking-widest">Return to Hub</button>
           </div>

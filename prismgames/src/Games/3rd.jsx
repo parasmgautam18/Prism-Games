@@ -75,7 +75,7 @@ function App() {
     const gridCols = level === 1 ? 'grid-cols-2' : level === 2 ? 'grid-cols-3' : 'grid-cols-4'
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-400 to-purple-600 flex flex-col items-center justify-center p-4">
+        <div className="min-h-screen bg-linear-to-br from-blue-400 to-purple-600 flex flex-col items-center justify-center p-4">
             <h1 className="text-4xl font-bold text-white mb-4">Memory Card Game</h1>
             <div className="text-white mb-4">
                 <p>Level: {level}</p>

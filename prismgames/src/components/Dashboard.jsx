@@ -65,9 +65,9 @@ export default function Dashboard() {
             className="group relative block overflow-hidden rounded-2xl bg-gray-900 border-2 border-gray-800 transition-all duration-300 hover:border-red-600 hover:-translate-y-2 shadow-2xl"
           >
             {/* Visual Background Decor */}
-            <div className={`absolute inset-0 opacity-20 bg-gradient-to-br ${game.color} group-hover:opacity-40 transition-opacity`} />
+            <div className={`absolute inset-0 opacity-20 bg-linear-to-br ${game.color} group-hover:opacity-40 transition-opacity`} />
             
-            <div className="relative p-8 flex flex-col h-full min-h-[250px]">
+            <div className="relative p-8 flex flex-col h-full min-h-62.5">
               <div className="flex justify-between items-start mb-4">
                 <span className="px-3 py-1 text-xs font-bold bg-red-600 text-white rounded-full uppercase tracking-tighter">
                   {game.tag}
@@ -98,7 +98,7 @@ export default function Dashboard() {
         ))}
 
         {/* COMING SOON PLACEHOLDER */}
-        <div className="border-2 border-dashed border-gray-800 rounded-2xl flex items-center justify-center min-h-[250px] bg-black/20">
+        <div className="border-2 border-dashed border-gray-800 rounded-2xl flex items-center justify-center min-h-62.5 bg-black/20">
           <p className="text-gray-700 font-bold uppercase tracking-widest">More Tasks Loading...</p>
         </div>
       </div>

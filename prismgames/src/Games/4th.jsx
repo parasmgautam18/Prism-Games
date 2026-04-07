@@ -105,7 +105,7 @@ export default function TypingGame() {
         </div>
 
         {/* Word Display */}
-        <div className="text-4xl md:text-5xl font-bold tracking-widest my-8 min-h-[60px] text-gray-100 drop-shadow-md">
+        <div className="text-4xl md:text-5xl font-bold tracking-widest my-8 min-h-15 text-gray-100 drop-shadow-md">
           {currentWord}
         </div>
 
