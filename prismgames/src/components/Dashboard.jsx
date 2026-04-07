@@ -12,10 +12,18 @@ const GAMES = [
   {
     id: 'void-maze',
     title: 'Void Maze',
-    description: 'Navigate the Tesseract. A contiguous labyrinth of shifting lasers and coiled paths. Don\'t touch the walls.',
-    path: '/void', // Make sure this matches your Route path in App.jsx
+    description: 'Navigate the Tesseract. A labyrinth of shifting lasers. Don\'t touch the walls.',
+    path: '/void',
     color: 'from-blue-600 to-blue-900',
     tag: 'Skill'
+  },
+  {
+    id: 'echo-tiles',
+    title: 'Echo Tiles', // YOUR NEW GAME
+    description: 'Synchronize your mind. Recall the hidden sequence before the void consumes your progress.',
+    path: '/echo',
+    color: 'from-purple-600 to-purple-900',
+    tag: 'Memory'
   }
 ];
 
