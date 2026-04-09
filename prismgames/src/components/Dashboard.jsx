@@ -51,6 +51,16 @@ const GAMES = [
     tag: "Balance",
     image: "/StackTower.png",
   },
+  {
+    id: "ball-switch",
+    title: "Ball Switch",
+    description:
+    "Switch the ball between two tracks and save it from spikes.",
+    path: "/ball",
+    color: "from-cyan-600 to-blue-900",
+    tag: "Switch",
+    image: "/ball.png"
+  }
 ];
 
 export default function Dashboard() {
