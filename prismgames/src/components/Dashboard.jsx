@@ -13,7 +13,6 @@ const GAMES = [
 export default function Dashboard() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Auto-cycle focus every 4 seconds, but mouse hover will override it
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % GAMES.length);
@@ -22,17 +21,23 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#020617] px-6 py-12 text-slate-100 selection:bg-red-500/30">
-      <header className="mb-20 text-center">
-        <p className="text-[10px] uppercase tracking-[0.6em] text-red-500/80 animate-pulse mb-4">
-          Neural Interface: Select Protocol
-        </p>
-        <h1 className="text-5xl font-black uppercase tracking-tighter text-white md:text-7xl italic">
-          PRISM <span className="text-red-600">ARCADE</span>
+    <main className="min-h-screen bg-[#020617] px-6 py-12 text-slate-100 font-sans selection:bg-cyan-500/30">
+      
+      {/* Background Decor */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:32px_32px]" />
+
+      <header className="relative z-10 mb-20 text-center">
+        <h1 className="text-6xl font-black uppercase tracking-tighter text-white md:text-8xl italic scale-x-95">
+          PRISM <span className="text-red-600 drop-shadow-[0_0_10px_rgba(220,38,38,0.5)]">ARCADE</span>
         </h1>
+        <div className="mt-4 flex justify-center gap-1.5">
+          {GAMES.map((_, i) => (
+            <div key={i} className={`h-1 rounded-full transition-all duration-500 ${i === activeIndex ? "w-12 bg-cyan-400" : "w-4 bg-slate-800"}`} />
+          ))}
+        </div>
       </header>
 
-      <section className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section className="relative z-10 mx-auto grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-3">
         {GAMES.map((game, index) => {
           const isActive = index === activeIndex;
 
@@ -40,56 +45,49 @@ export default function Dashboard() {
             <Link
               key={game.id}
               to={game.path}
-              // REINSTATED: Hover logic for instant selection
               onMouseEnter={() => setActiveIndex(index)}
               className={`
-                group relative flex min-h-[22rem] flex-col overflow-hidden rounded-[32px] border-2 transition-all duration-500
+                group relative flex min-h-[18rem] flex-col rounded-2xl border-2 transition-all duration-300 overflow-hidden
                 ${isActive 
-                  ? "scale-[1.05] border-red-600 shadow-[0_0_50px_-10px_rgba(220,38,38,0.6)] z-10 cursor-pointer" 
-                  : "border-slate-800 opacity-80 cursor-pointer"
+                  ? "border-cyan-400 bg-slate-800 shadow-[0_0_20px_rgba(34,211,238,0.2)] translate-y-[-4px]" 
+                  : "border-slate-800 bg-slate-900/60 hover:border-slate-600 hover:translate-y-[-2px]"
                 }
               `}
             >
-              {/* Game Logo - Always Visible with high contrast logic */}
-              <div className="absolute inset-0 z-0 bg-slate-900">
+              {/* Image Layer - Optimized Contrast */}
+              <div className="absolute inset-0 z-0 bg-slate-950">
                 <img 
                   src={game.image} 
                   alt={game.title} 
-                  className={`h-full w-full object-cover transition-all duration-1000 ${isActive ? 'scale-110 opacity-60 grayscale-0' : 'opacity-50 grayscale hover:grayscale-0'}`}
-                  onError={(e) => { e.target.src = "https://via.placeholder.com/400x600/0f172a/ef4444?text=PRISM"; }}
+                  className={`h-full w-full object-cover transition-transform duration-700 ${isActive ? 'scale-105 opacity-60' : 'opacity-50 grayscale-[0.1]'}`}
+                  onError={(e) => { e.target.src = "https://via.placeholder.com/400x300/1e293b/ffffff?text=LOGO"; }}
                 />
               </div>
 
-              {/* Scanline Effect */}
-              {isActive && (
-                <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden">
-                  <div className="absolute top-0 left-0 w-full h-[4px] bg-red-500 shadow-[0_0_20px_red] animate-scanline" />
-                </div>
-              )}
-
               {/* Scrim Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent transition-opacity duration-700 ${isActive ? "opacity-80" : "opacity-90"}`} />
-              
-              <div className="relative flex flex-1 flex-col p-8 z-10">
-                <div className="flex justify-between items-start mb-4">
-                  <span className={`rounded-md px-2 py-1 text-[10px] font-black uppercase tracking-widest transition-colors duration-500 ${isActive ? 'bg-red-600 text-white' : 'bg-slate-800 text-slate-400'}`}>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/20 to-transparent z-10" />
+
+              <div className="relative flex flex-1 flex-col p-8 z-20">
+                <div className="flex justify-between items-center mb-4">
+                  <span className={`font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded border ${isActive ? 'bg-cyan-400 text-black border-cyan-400' : 'bg-slate-800 text-slate-300 border-slate-700'}`}>
                     {game.tag}
                   </span>
-                  {isActive && <div className="h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_10px_red] animate-ping" />}
+                  {isActive && <div className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" />}
                 </div>
 
-                <h2 className={`text-3xl font-black uppercase tracking-tighter transition-colors duration-500 ${isActive ? "text-white" : "text-slate-500"}`}>
+                <h2 className={`text-3xl font-black uppercase tracking-tighter italic ${isActive ? "text-cyan-400" : "text-white"}`}>
                   {game.title}
                 </h2>
 
-                <p className={`mt-4 text-sm leading-relaxed text-slate-200 transition-all duration-500 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+                <p className="mt-3 text-sm text-slate-200 line-clamp-2 leading-relaxed opacity-95">
                   {game.description}
                 </p>
 
-                <div className="mt-auto pt-8">
-                  <div className={`flex items-center gap-3 text-xs font-black uppercase tracking-[0.4em] transition-all duration-700 ${isActive ? "text-red-500 translate-x-0 opacity-100" : "text-slate-800 -translate-x-4 opacity-0"}`}>
-                    Initialize Connection →
-                  </div>
+                <div className="mt-auto pt-6 flex items-center justify-between">
+                  <span className={`text-[10px] font-bold uppercase tracking-[0.3em] transition-colors ${isActive ? "text-cyan-400" : "text-slate-500"}`}>
+                    {isActive ? "READY_TO_PLAY" : "SELECT_GAME"}
+                  </span>
+                  <div className={`h-1 transition-all duration-500 ${isActive ? "bg-cyan-400 w-16" : "bg-slate-800 w-12"}`} />
                 </div>
               </div>
             </Link>
@@ -97,10 +95,10 @@ export default function Dashboard() {
         })}
       </section>
 
-      <footer className="mt-24 text-center">
-        <div className="inline-block py-2 px-6 border-t border-slate-900">
-           <p className="text-[10px] uppercase tracking-[0.5em] text-slate-600">
-            &copy; 2026 Prism Games Inc // All Rights Reserved
+      <footer className="relative z-10 mt-24 text-center">
+        <div className="inline-block py-4 border-t border-slate-900 w-full max-w-xs">
+          <p className="text-[10px] uppercase font-mono tracking-[0.5em] text-slate-500">
+            &copy; 2026 Prism Games Inc // Systems_Online
           </p>
         </div>
       </footer>
